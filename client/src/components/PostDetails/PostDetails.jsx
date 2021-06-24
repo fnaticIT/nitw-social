@@ -1,9 +1,9 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import {  useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import "./PostDetails.css";
-import Topbar from "../topbar/Topbar"
+import Topbar from "../topbar/Topbar";
 function PostDetails() {
   const { id } = useParams();
   const [post, setPosts] = useState({});
@@ -37,7 +37,7 @@ function PostDetails() {
 
   return (
     <div>
-    <Topbar />
+      <Topbar />
       <h1 className="posth">{post.desc}</h1>
 
       <div className="postBottomRight">
@@ -45,15 +45,6 @@ function PostDetails() {
           <p className="c">{friend}</p>
         ))}
       </div>
-
-
-
-
-
-
-
-
-
     </div>
   );
 }

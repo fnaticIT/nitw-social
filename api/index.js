@@ -10,19 +10,24 @@ const authRoute = require("./routes/auth");
 const postRoute = require("./routes/posts");
 const router = express.Router();
 const path = require("path");
-
+const cors = require("cors");
 dotenv.config();
 
-mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true }, () => {
-  console.log("Connected to MongoDB");
-});
+//mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true }, () => {
+//console.log("Connected to MongoDB");
+//});
+
 app.use("/images", express.static(path.join(__dirname, "public/images")));
 
 //middleware
 app.use(express.json());
 app.use(helmet());
 app.use(morgan("common"));
+app.use(cors());
 
+app.get("/", (req, res) => {
+  res.send("Its running");
+});
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, "public/images");
@@ -45,6 +50,17 @@ app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
 app.use("/api/posts", postRoute);
 
-app.listen(8800, () => {
-  console.log("Backend server is running!");
-});
+const PORT = process.env.PORT || 5000;
+//app.listen(PORT, () => {
+// console.log("Backend server is running!");
+//});
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("../client/build"));
+}
+mongoose
+  .connect(process.env.MONGO_URI || process.env.MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true })
+  .then(() => app.listen(PORT, () => console.log(`Server Running on Port: http://localhost:${PORT}`)))
+  .catch((error) => console.log(`${error} did not connect`));
+
+mongoose.set("useFindAndModify", false);

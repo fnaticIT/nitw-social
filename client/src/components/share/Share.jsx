@@ -1,8 +1,5 @@
 import "./share.css";
-import {
-  PermMedia,
-  Cancel,
-} from "@material-ui/icons";
+import { PermMedia, Cancel } from "@material-ui/icons";
 import { useContext, useRef, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import axios from "axios";
@@ -40,20 +37,8 @@ export default function Share() {
     <div className="share">
       <div className="shareWrapper">
         <div className="shareTop">
-          <img
-            className="shareProfileImg"
-            src={
-              user.profilePicture
-                ? PF + user.profilePicture
-                : PF + "person/noAvatar.png"
-            }
-            alt=""
-          />
-          <input
-            placeholder={"Post Your Queries " + user.username + "?"}
-            className="shareInput"
-            ref={desc}
-          />
+          <img className="shareProfileImg" src={user.profilePicture ? PF + user.profilePicture : PF + "person/noAvatar.png"} alt="" />
+          <input placeholder={"Post Your Queries " + user.username + "?"} className="shareInput" ref={desc} />
         </div>
         <hr className="shareHr" />
         {file && (
@@ -67,20 +52,13 @@ export default function Share() {
             <label htmlFor="file" className="shareOption">
               <PermMedia htmlColor="tomato" className="shareIcon" />
               <span className="shareOptionText">Photo or Video</span>
-              <input
-                style={{ display: "none" }}
-                type="file"
-                id="file"
-                accept=".png,.jpeg,.jpg"
-                onChange={(e) => setFile(e.target.files[0])}
-              />
+              <input style={{ display: "none" }} type="file" id="file" accept=".png,.jpeg,.jpg" onChange={(e) => setFile(e.target.files[0])} />
             </label>
-         
           </div>
           <div>
-          <button className="b" type="submit">
-            Share
-          </button>
+            <button className="b" type="submit">
+              Share
+            </button>
           </div>
         </form>
       </div>

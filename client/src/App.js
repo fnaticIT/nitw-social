@@ -9,7 +9,7 @@ import Clubs from "./components/Clubs/Clubs";
 import Friends from "./components/Friends/Friends";
 import Question from "./components/Question/Question";
 import PostDetails from "./components/PostDetails/PostDetails";
-import Answer from "./components/Answers/Answer"
+import Answer from "./components/Answers/Answer";
 function App() {
   const { user } = useContext(AuthContext);
   return (
@@ -18,7 +18,7 @@ function App() {
         <Route exact path="/">
           {user ? <Home /> : <Register />}
         </Route>
-        <Route path="/login">{user ? <Redirect to="/" /> : <Login flag={1}/>}</Route>
+        <Route path="/login">{user ? <Redirect to="/" /> : <Login flag={1} />}</Route>
         <Route path="/register">{user ? <Redirect to="/" /> : <Register />}</Route>
         <Route path="/profile/:username">
           <Profile />

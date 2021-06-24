@@ -38,7 +38,7 @@ export default function Sidebar(user) {
             </Link>
           </li>
         </ul>
-        
+
         <hr className="sidebarHr" />
         <li className="sidebarListItem">
           <Event className="sidebarIcon" />

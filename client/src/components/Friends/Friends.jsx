@@ -7,8 +7,6 @@ import Topbar from "../topbar/Topbar";
 export default function Friends({ user }) {
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
   const [friends, setFriends] = useState([]);
- 
- 
 
   useEffect(() => {
     const getFriends = async () => {
@@ -25,8 +23,7 @@ export default function Friends({ user }) {
   const ProfileRightbar = () => {
     return (
       <>
-      
-        <h1 >User friends</h1>
+        <h1>User friends</h1>
         <div className="rightbarFollowings">
           {friends.map(
             (friend) =>
@@ -45,13 +42,13 @@ export default function Friends({ user }) {
   };
   return (
     <div>
-      <Topbar/>
-   
-    <div className="rightbar">
-      <div className="rightbarWrapper">
-        <ProfileRightbar />
+      <Topbar />
+
+      <div className="rightbar">
+        <div className="rightbarWrapper">
+          <ProfileRightbar />
+        </div>
       </div>
-    </div>
     </div>
   );
 }
