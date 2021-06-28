@@ -5,6 +5,7 @@ import axios from "axios";
 import "./PostDetails.css";
 import Topbar from "../topbar/Topbar";
 function PostDetails() {
+  const PF = process.env.REACT_APP_PUBLIC_FOLDER;
   const { id } = useParams();
   const [post, setPosts] = useState({});
 
@@ -38,8 +39,14 @@ function PostDetails() {
   return (
     <div>
       <Topbar />
-      <h1 className="posth">{post.desc}</h1>
-
+      <div className="postCenter">
+        <img className="postImg" src={PF + post.img} alt="no photo" />
+      </div>
+      <h2 className="posth">{post.desc}</h2>
+      <hr className="t"></hr>
+      <div className="t1">
+        <h4 >ANSWERS - {cmt.length}</h4>
+      </div>
       <div className="postBottomRight">
         {cmt.map((friend) => (
           <p className="c">{friend}</p>

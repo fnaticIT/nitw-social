@@ -148,6 +148,17 @@ router.put("/update/country", async (req, res) => {
     res.status(500).json(err);
   }
 });
+router.put("/update/isClub", async (req, res) => {
+  try {
+    const newuser = req.body;
+    console.log(newuser);
+    const currUser = await User.findById(newuser.id);
+    await currUser.updateOne({ $set: { isClub: newuser.isClub } });
+    res.status(200).json(currUser);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 router.put("/update/:id", async (req, res) => {
   console.log("hii");
   try {

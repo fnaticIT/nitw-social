@@ -84,7 +84,7 @@ export default function Post({ post }) {
             <span className="postUsername">{user.username}</span>
             <span className="postDate">{format(post.createdAt)}</span>
           </div>
-          <div className="postTopRight">{currentUser._id === post.userId && <p onClick={handledelete}>DELETE</p>}</div>
+          <div className="postTopRight">{currentUser._id === post.userId && <p onClick={handledelete} className="b">DELETE</p>}</div>
         </div>
         <div className="postCenter" onClick={openPost}>
           <span className="postText">{post?.desc}</span>

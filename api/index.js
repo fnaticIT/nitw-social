@@ -13,10 +13,6 @@ const path = require("path");
 const cors = require("cors");
 dotenv.config();
 
-//mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true }, () => {
-//console.log("Connected to MongoDB");
-//});
-
 app.use("/images", express.static(path.join(__dirname, "public/images")));
 
 //middleware
@@ -51,15 +47,9 @@ app.use("/api/users", userRoute);
 app.use("/api/posts", postRoute);
 
 const PORT = process.env.PORT || 5000;
-//app.listen(PORT, () => {
-// console.log("Backend server is running!");
-//});
 
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("../client/build"));
-}
 mongoose
-  .connect(process.env.MONGO_URI || process.env.MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true })
+  .connect(process.env.MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true })
   .then(() => app.listen(PORT, () => console.log(`Server Running on Port: http://localhost:${PORT}`)))
   .catch((error) => console.log(`${error} did not connect`));
 

@@ -74,12 +74,17 @@
   margin-bottom: 20px;
   cursor: pointer;
 }
+.rightbarFollowingName {
+font-size: 20px;
+margin-left: 30px;
+}
 
 .rightbarFollowingImg {
   width: 100px;
   height: 100px;
   object-fit: cover;
   border-radius: 5px;
+  
 }
 
 .rightbarFollowButton {

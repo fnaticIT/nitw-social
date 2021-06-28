@@ -3,7 +3,7 @@
 }
 
 .profileRight{
-    flex: 16;
+    flex: 10;
 }
 
 .profileCover{
@@ -15,7 +15,7 @@
     width: 100%;
     height: 250px;
     object-fit: cover;
-    margin-top:30px;
+    margin-top:1px;
 }
 
 .profileUserImg{

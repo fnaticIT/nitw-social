@@ -37,15 +37,15 @@ a {
   text-decoration: none;
   margin: 15px 0;
 }
-
+/*#ff416c*/
 .b {
   border-radius: 20px;
-  border: 1px solid #ff416c;
-  background-color: #ff416c;
-  color: #ffffff;
+  border: 1px solid #ccffff;
+  background-color: #ccffff;
+  color: #00cccc;
   font-size: 12px;
   font-weight: bold;
-  padding: 12px 45px;
+  padding: 8px 16px;
   letter-spacing: 1px;
   text-transform: uppercase;
   transition: transform 80ms ease-in;

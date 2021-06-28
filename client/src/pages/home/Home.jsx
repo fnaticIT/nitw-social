@@ -9,10 +9,11 @@ import { useContext } from "react";
 
 export default function Home() {
   const { user } = useContext(AuthContext);
+  
+ 
   return (
     <>
       <Topbar />
-      
       <div className="homeContainer">
         <Sidebar user={user} />
         <Feed />
